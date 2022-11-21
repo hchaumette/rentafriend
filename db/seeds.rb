@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require 'faker'
+
+5.times { User.create!(email: Faker::Internet.unique.email, password: "123456", name: Faker::Name.unique.name) }
+
+
+
+Booking.create!()
+
+
+
+5.times { Activity.create!(title: Faker::Hobby.activity, content: Faker::Lorem.paragraph, location: Faker::FunnyName.name) }
