@@ -34,7 +34,7 @@ puts " ended create activites"
 puts "create booking"
  booking1 = Booking.create!(user: user1, activity: activity4, state: "pending", start_date: "03/02/2023", end_date: "10/02/2023")
  booking1 = Booking.create!(user: user5, activity: activity1, state: "accepted", start_date: "03/12/2022", end_date: "10/12/2022")
- booking3 = Booking.create!(user: user4, activity: activity2, state: "pending", start_date: "23/11/2022", end_date: "10/01/2023")
+ booking3 = Booking.create!(user: user4, activity: activity2, state: "declined", start_date: "23/11/2022", end_date: "10/01/2023")
  booking4 = Booking.create!(user: user2, activity: activity3, state: "pending", start_date: "19/12/2022", end_date: "10/01/2023")
- booking5 = Booking.create!(user: user3, activity: activity5, state: "pending", start_date: "03/12/2022", end_date: "04/12/2022")
+ booking5 = Booking.create!(user: user3, activity: activity5, state: "declined", start_date: "03/12/2022", end_date: "04/12/2022")
 puts "ended create booking"

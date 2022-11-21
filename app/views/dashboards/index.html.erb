@@ -1,0 +1,35 @@
+<h2>Pending</h2>
+
+<% @bookings.each do |booking| %>
+  <% if booking.state == "pending" %>
+    <%= booking.activity.title %>
+    <%= booking.activity.content %>
+    <%= image_tag(booking.activity.image_url) %>
+  <% end %>
+<% end %>
+
+
+
+<h2>Declined</h2>
+
+<% @bookings.each do |booking| %>
+<div class="card">
+  <% if booking.state == "declined" %>
+    <%= booking.activity.title %>
+    <%= booking.activity.content %>
+    <%= image_tag(booking.activity.image_url) %>
+  <% end %>
+  </div>
+<% end %>
+
+
+
+
+<h2>Accepted</h2>
+<% @bookings.each do |booking| %>
+  <% if booking.state == "accepted" %>
+    <%= booking.activity.title %>
+    <%= booking.activity.content %>
+    <%= image_tag(booking.activity.image_url) %>
+  <% end %>
+<% end %>
