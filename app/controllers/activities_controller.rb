@@ -8,6 +8,7 @@ class ActivitiesController < ApplicationController
   end
 
   def create
+    raise
     @activity = Activity.new(activity_params)
     if @activity.save
       redirect_to  activities_path
