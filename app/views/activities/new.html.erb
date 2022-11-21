@@ -1,0 +1,11 @@
+<%= simple_form_for @activity do |f| %>
+  <%= f.input :title %>
+  <%= f.input :content %>
+  <%= f.input :location %>
+  <%= f.submit %>
+<% end %>
+
+
+
+
+<p><%= link_to "Back", activities_path %></p>

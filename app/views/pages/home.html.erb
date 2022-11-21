@@ -6,9 +6,8 @@
 
   <div class="cards">
 
-    <%  10.times do %>
-    <%= render 'shared/card_activity' %>
-
+    <% @activities.each do |activity| %>
+      <%= render 'shared/card_activity', activity: activity %>
     <% end %>
 
   </div>

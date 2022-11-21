@@ -1,35 +1,46 @@
-<h2>Pending</h2>
-
-<% @bookings.each do |booking| %>
-  <% if booking.state == "pending" %>
-    <%= booking.activity.title %>
-    <%= booking.activity.content %>
-    <%= image_tag(booking.activity.image_url) %>
-  <% end %>
-<% end %>
 
 
 
-<h2>Declined</h2>
 
-<% @bookings.each do |booking| %>
-<div class="card">
-  <% if booking.state == "declined" %>
-    <%= booking.activity.title %>
-    <%= booking.activity.content %>
-    <%= image_tag(booking.activity.image_url) %>
-  <% end %>
+
+
+
+
+
+
+
+
+
+<div class="container">
+<h2 class="dashboard-title">Pending</h2>
+
+  <div class="cards">
+    <% @bookings.each do |booking| %>
+      <% if booking.state == "pending" %>
+         <%= render "shared/card_activity", activity: booking.activity %>
+      <% end %>
+    <% end %>
   </div>
-<% end %>
 
 
+<h2 class="dashboard-title">Declined</h2>
+
+ <div class="cards">
+    <% @bookings.each do |booking| %>
+      <% if booking.state == "declined" %>
+         <%= render "shared/card_activity", activity: booking.activity %>
+      <% end %>
+    <% end %>
+  </div>
 
 
-<h2>Accepted</h2>
-<% @bookings.each do |booking| %>
-  <% if booking.state == "accepted" %>
-    <%= booking.activity.title %>
-    <%= booking.activity.content %>
-    <%= image_tag(booking.activity.image_url) %>
-  <% end %>
-<% end %>
+<h2 class="dashboard-title">Accepted</h2>
+ <div class="cards">
+    <% @bookings.each do |booking| %>
+      <% if booking.state == "accepted" %>
+         <%= render "shared/card_activity", activity: booking.activity %>
+      <% end %>
+    <% end %>
+  </div>
+
+  </div>
