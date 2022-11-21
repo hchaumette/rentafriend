@@ -7,7 +7,11 @@
   <div class="cards">
 
     <% @activities.each do |activity| %>
-      <%= render 'shared/card_activity', activity: activity %>
+      <%= link_to activity_path(activity) do %>
+        <%= render 'shared/card_activity', activity: activity %>
+
+      <% end %>
+
     <% end %>
 
   </div>
