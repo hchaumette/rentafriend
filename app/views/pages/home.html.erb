@@ -1,2 +1,21 @@
+<<<<<<< Updated upstream
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+=======
+<%= render 'shared/banner' %>
+
+<div class="container">
+
+<h1>Join an activity!</h1>
+
+  <div class="cards">
+
+    <% @activities.each do |activity| %>
+      <%= render 'shared/card_activity', activity: activity %>
+    <% end %>
+
+
+
+  </div>
+</div>
+>>>>>>> Stashed changes
