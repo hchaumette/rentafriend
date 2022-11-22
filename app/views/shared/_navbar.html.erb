@@ -1,29 +1,36 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"> <i class="fa-solid fa-user-group"></i> RENTAFRIEND </a>
 
-    <div class="search-box">
+      <a class="navbar-brand" href="#"> <i class="fa-solid fa-user-group"></i> FINDAFRIEND </a>
+
+      <div class="search-box">
       <button class="btn-search"><i class="fas fa-search"></i></button>
       <input type="text" class="input-search" placeholder="Type to Search...">
-    </div>
+      </div>
 
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-      <div class = "nav-circle">
-        <li class="nav-item dropdown">
-            <i class="fa-solid fa-list" id="navbarDropdown" data-bs-toggle="dropdown"></i>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+        <div class = "nav-circle" data-bs-toggle="dropdown">
+          <li class="nav-item dropdown" >
+            <i class="fa-solid fa-list" id="navbarDropdown"></i>
+          </li>
+          <li class="nav-item avatar">
+            <img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+          </li>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Action</a>
               <a class="dropdown-item" href="#">Another action</a>
               <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
             </div>
-          </li>
-          <li class="nav-item avatar">
-            <img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
-          </li>
+        </div>
+        </ul>
       </div>
-      </ul>
-    </div>
   </div>
 </div>
+
+  <div class="scrollmenu">
+    <a href="#home">Sport</a>
+    <a href="#news">Nature</a>
+    <a href="#contact">Game</a>
+    <a href="#about">Party</a>
+  </div>

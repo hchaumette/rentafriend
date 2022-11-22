@@ -2,6 +2,30 @@
   justify-content: space-between;
   background: white;
   position: sticky;
+
+  top:0;
+  z-index: 2;
+}
+
+div.scrollmenu {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+  position: sticky;
+  top:10%;
+  z-index: 1;
+}
+
+div.scrollmenu a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+  background-color: #777;
   top: 0;
 }
 
