@@ -2,5 +2,14 @@
 
 <h3><%= @activity.content %></h3>
 <p><%= @activity.location %></p>
-<p><%= link_to "Delete Activity", activity_path(@activity), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
-<p><%= link_to "Edit Activity",  edit_activity_path(@activity) %></p>
+
+
+
+<% if policy(@activity).destroy? %>
+  <%= link_to "Delete Activity", activity_path(@activity), data: {turbo_method: :delete} %>
+<% end %>
+
+
+<% if policy(@activity).edit? %>
+  <%= link_to "Edit Activity",  edit_activity_path(@activity) %>
+<% end %>
