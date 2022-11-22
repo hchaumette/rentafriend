@@ -1,8 +1,28 @@
-<h1>Activity</h1>
-<ul>
-<% @activities.each do |activity| %>
-<li><%= activity.title %></li>
-<% end %>
-</ul>
-<p><%= link_to "Add Activity", new_activity_path %></p>
-<p><%= link_to "Delete Activity", new_activity_path %></p>
+<%= render 'shared/navbar' %>
+<div>
+
+  <%= render 'shared/banner' %>
+</div>
+
+<div class="container">
+
+
+<div class="d-flex justify-content-between align-items-center">
+  <div>
+    <h1>Join an activity!</h1>
+  </div>
+  <div>
+    <%= link_to "Post an Activity", new_activity_path, class:'btn btn-primary' %>
+  </div>
+</div>
+
+  <div class="cards">
+
+    <% @activities.each do |activity| %>
+      <%= link_to activity_path(activity) do %>
+        <%= render 'shared/card_activity', activity: activity %>
+
+      <% end %>
+
+    <% end %>
+  </div>

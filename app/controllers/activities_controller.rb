@@ -1,15 +1,23 @@
 class ActivitiesController < ApplicationController
+  before_action :set_activity, only: %i[show destroy update edit]
+
   def new
     @activity = Activity.new
+    authorize @activity
   end
 
   def index
-    @activities = Activity.all
+    @activities = policy_scope(Activity)
+  end
+
+  def show
+    authorize @activity
   end
 
   def create
     @activity = Activity.new(activity_params)
     @activity.user_id = current_user.id
+    authorize @activity
     if @activity.save
       redirect_to  activities_path
     else
@@ -18,8 +26,19 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
-    @acitvity.destroy
-    redirect_to activities_path
+    authorize @activity
+    @activity.destroy
+    redirect_to activities_path, status: :see_other
+  end
+
+  def edit
+    authorize @activity
+  end
+
+  def update
+    authorize @activity
+    @activity.update(activity_params)
+    redirect_to activity_path(@activity)
   end
 
   private
@@ -28,4 +47,7 @@ class ActivitiesController < ApplicationController
     params.require(:activity).permit(:title, :content, :location)
   end
 
+  def set_activity
+    @activity = Activity.find(params[:id])
+  end
 end

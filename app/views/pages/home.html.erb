@@ -1,4 +1,8 @@
-<%= render 'shared/banner' %>
+<%= render 'shared/navbar' %>
+<div>
+
+  <%= render 'shared/banner' %>
+</div>
 
 <div class="container">
 
@@ -7,8 +11,10 @@
   <div class="cards">
 
     <% @activities.each do |activity| %>
-      <%= render 'shared/card_activity', activity: activity %>
-    <% end %>
+      <%= link_to activity_path(activity) do %>
+        <%= render 'shared/card_activity', activity: activity %>
 
+      <% end %>
+
+    <% end %>
   </div>
-</div>
