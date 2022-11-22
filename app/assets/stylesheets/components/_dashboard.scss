@@ -1,5 +1,5 @@
 .dashboard-title {
-  background-color: rgba(37, 103, 83, 0.476);
+  background-color: rgba(34, 106, 157, 0.476);
   color: whitesmoke;
   width: 100%;
   margin: 40px auto;
@@ -13,11 +13,12 @@
 }
 .grid {
   display: grid;
-  height: 400px;
-  grid-template-columns: 2fr 600px;
+  height: 450px;
+  grid-template-columns: 2fr 800px;
   margin-top: 20px;
 }
-.grid-right {
-
-
+.text-deco-none {
+  a {
+    text-decoration: none;
+  }
 }
