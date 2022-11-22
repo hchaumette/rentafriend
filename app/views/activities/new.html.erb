@@ -1,10 +1,22 @@
 <div class="container p-5">
-  <div class="card p-5">
+
+  <div class="card p-5" data-controller="category-activity">
+
+    <div class="d-flex">
+      <% Activity::AVAILABLE_CATEGORIES.each do |category| %>
+        <div class="card_category" data-action="click->category-activity#select_category" value="<%=category%>"><%= category %></div>
+      <% end %>
+    </div>
+
     <%= simple_form_for @activity do |f| %>
-      <%= f.input :category, collection: Activity::AVAILABLE_CATEGORIES %>
+      <div class="d-none">
+        <%= f.input :category, collection: Activity::AVAILABLE_CATEGORIES, input_html: { data: { "category-activity-target" => 'input' }} %>
+        </div>
       <%= f.input :title %>
       <%= f.input :content, prompt: 'describe your activity' %>
       <%= f.input :location, prompt: 'describe your activity' %>
+      <%= f.input :photo, as: :file  %>
+
       <%= f.submit%>
     <% end %>
   </div>
