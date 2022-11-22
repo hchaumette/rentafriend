@@ -1,14 +1,15 @@
   <%= render "shared/navbar" %>
 <div class="container">
-  <div class="card-show"></div>
     <h1><%= @activity.title.capitalize %></h1>
-
+    <p><%= "photo" %></p>
+  <div class="card-show">
     <div class="card-show-info">
       <h3><%= @activity.content %></h3>
-      <p><%= "photo" %></p>
+    </div>
+    <div class="card-show-info2">
       <p><%= @activity.location %></p>
-      <p><%= link_to "Delete Activity", activity_path(@activity), data: {turbo_method: :delete} %></p>
-      <p><%= link_to "Edit Activity",  edit_activity_path(@activity) %></p>
     </div>
   </div>
+      <p><%= link_to "Delete Activity", activity_path(@activity), data: {turbo_method: :delete} %></p>
+      <p><%= link_to "Edit Activity",  edit_activity_path(@activity) %></p>
 </div>
