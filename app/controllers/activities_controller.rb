@@ -7,6 +7,10 @@ class ActivitiesController < ApplicationController
     @activities = Activity.all
   end
 
+  def show
+    @activity = Activity.find(params[:id])
+  end
+
   def create
     @activity = Activity.new(activity_params)
     @activity.user_id = current_user.id
@@ -18,9 +22,21 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
-    @acitvity.destroy
-    redirect_to activities_path
+    @activity = Activity.find(params[:id])
+    @activity.destroy
+    redirect_to activities_path, status: :see_other
   end
+
+  def edit
+    @activity = Activity.find(params[:id])
+  end
+
+  def update
+    @activity = Activity.find(params[:id])
+    @activity.update(activity_params)
+    redirect_to activity_path(@activity)
+  end
+
 
   private
 
