@@ -1,10 +1,11 @@
 <div class="container p-5">
   <div class="card p-5">
     <%= simple_form_for @activity do |f| %>
+      <%= f.input :category, collection: Activity::AVAILABLE_CATEGORIES %>
       <%= f.input :title %>
-      <%= f.input :content %>
-      <%= f.input :location %>
-      <%= f.submit %>
+      <%= f.input :content, prompt: 'describe your activity' %>
+      <%= f.input :location, prompt: 'describe your activity' %>
+      <%= f.submit%>
     <% end %>
   </div>
 
