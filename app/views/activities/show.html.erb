@@ -1,11 +1,17 @@
-<h1><%= @activity.title %></h1>
 
-<h3><%= @activity.content %></h3>
-<p><%= @activity.location %></p>
-
-
-
-<% if policy(@activity).destroy? %>
+  <%= render "shared/navbar" %>
+<div class="container">
+    <h1><%= @activity.title.capitalize %></h1>
+    <p><%= "photo" %></p>
+  <div class="card-show">
+    <div class="card-show-info">
+      <h3><%= @activity.content %></h3>
+    </div>
+    <div class="card-show-info2">
+      <p><%= @activity.location %></p>
+    </div>
+  </div>
+      <% if policy(@activity).destroy? %>
   <%= link_to "Delete Activity", activity_path(@activity), data: {turbo_method: :delete} %>
 <% end %>
 
@@ -13,3 +19,4 @@
 <% if policy(@activity).edit? %>
   <%= link_to "Edit Activity",  edit_activity_path(@activity) %>
 <% end %>
+</div>
