@@ -1,4 +1,4 @@
-  <%= render "shared/navbar" %>
+<%= render "shared/navbar" %>
 <div class="container">
     <h1><%= @activity.title.capitalize %></h1>
     <p><%= "photo" %></p>
@@ -10,6 +10,13 @@
       <p><%= @activity.location %></p>
     </div>
   </div>
-      <p><%= link_to "Delete Activity", activity_path(@activity), data: {turbo_method: :delete} %></p>
-      <p><%= link_to "Edit Activity",  edit_activity_path(@activity) %></p>
+      <% if policy(@activity).destroy? %>
+  <%= link_to "Delete Activity", activity_path(@activity), data: {turbo_method: :delete} %>
+<% end %>
+
+
+<% if policy(@activity).edit? %>
+  <%= link_to "Edit Activity",  edit_activity_path(@activity) %>
+<% end %>
 </div>
+
