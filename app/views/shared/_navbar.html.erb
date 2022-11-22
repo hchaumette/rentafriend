@@ -1,5 +1,3 @@
-
-
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <a class="navbar-brand" href="#"> <i class="fa-solid fa-user-group"></i> RENTAFRIEND </a>
@@ -27,24 +25,5 @@
       </div>
       </ul>
     </div>
-  </div>
-</div>
-
-<%= render 'shared/banner' %>
-
-<div class="container">
-
-<h1>Join an activity!</h1>
-
-  <div class="cards">
-
-    <% @activities.each do |activity| %>
-      <%= link_to activity_path(activity) do %>
-        <%= render 'shared/card_activity', activity: activity %>
-
-      <% end %>
-
-    <% end %>
-
   </div>
 </div>
