@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import Glide from '@glidejs/glide'
+import { NoEmitOnErrorsPlugin } from "webpack"
 
 // Connects to data-controller="carousel"
 export default class extends Controller {
@@ -12,7 +13,6 @@ export default class extends Controller {
       type: 'carousel',
       perView: 3,
       focusAt: 'center',
-      autoplay: 3000,
       breakpoints: {
         800: {
           perView: 2
