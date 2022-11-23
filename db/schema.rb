@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_22_142823) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_23_105047) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,13 +52,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_142823) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "category"
+    t.date "date"
+    t.time "time"
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
   create_table "bookings", force: :cascade do |t|
     t.string "state"
-    t.date "start_date"
-    t.date "end_date"
     t.bigint "user_id", null: false
     t.bigint "activity_id", null: false
     t.datetime "created_at", null: false
