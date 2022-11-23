@@ -1,15 +1,17 @@
 <%= render "shared/navbar" %>
-<div class="container">
-  <h1><%= @activity.title.capitalize %></h1>
-  <img src="<%= @activity.image_url%>" alt="activity-img">
+<div class="container-show">
+  <div class="img-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @activity.image_url %>)">
+ <h1><%= @activity.title.capitalize %></h1>
+</div>
+
   <div class="card-show">
     <p> <strong><%= "Description : "%></strong></p>
-    <div class="card-show-info">
-      <h3><%= @activity.content %></h3>
+   <div class="card-show-infos">
+      <h2><%= @activity.content %></h2>
     </div>
 
-    <div class="card-show-info3">
-      <p><%= @activity.location %></p>
+
+    <button type="button" class="btn btn-primary" >Reservé</button
 
     <%= simple_form_for [@activity,Booking.new] do |f| %>
       <%= f.submit %>
@@ -19,9 +21,9 @@
     <div class="card-show-info2">
       <p><%= @activity.user.name %></p>
       <p><%= @activity.user.email %></p>
-
     </div>
   </div>
+
 
 
 
