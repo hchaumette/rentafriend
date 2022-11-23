@@ -8,11 +8,11 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log("hello")
     let glide = new Glide(`.glide${this.numberValue}`, {
-      type: 'carousel',
-      perView: 3,
+      type: 'slider',
+      perView: 1,
       focusAt: 'center',
+      gap: 10,
       breakpoints: {
         800: {
           perView: 2
