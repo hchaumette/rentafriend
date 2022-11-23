@@ -7,7 +7,10 @@ class ActivitiesController < ApplicationController
   end
 
   def index
+    @category = params[:category]
     @activities = policy_scope(Activity)
+    @category_activities = @activities.where(category: @category) if @category
+
   end
 
   def show
