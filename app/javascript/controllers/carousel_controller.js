@@ -1,6 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
 import Glide from '@glidejs/glide'
-import { NoEmitOnErrorsPlugin } from "webpack"
 
 // Connects to data-controller="carousel"
 export default class extends Controller {
