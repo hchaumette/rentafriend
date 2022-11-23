@@ -1,8 +1,12 @@
 <%= render "shared/navbar" %>
-<div class="container-show">
-  <div class="img-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @activity.image_url %>)">
- <h1><%= @activity.title.capitalize %></h1>
-</div>
+<div class="container">
+  <h1><%= @activity.title.capitalize %></h1>
+
+  <% if @activity.photo.key.nil? %>
+    <img src="<%= @activity.image_url%>" alt="activity-img">
+  <% else %>
+    <%= cl_image_tag @activity.photo.key %>
+  <% end %>
 
   <div class="card-show">
     <p> <strong><%= "Description : "%></strong></p>
