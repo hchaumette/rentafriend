@@ -26,6 +26,7 @@ export default class extends Controller {
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(this.map)
     })
+
   }
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
