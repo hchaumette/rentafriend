@@ -4,7 +4,7 @@
   <% if @category %>
     <h1 class="text-center m-5"><%= @category %></h1>
     <% if  @category_activities.empty? %>
-      <h2 class="empty m-5">No Activity registered.</h2>
+      <h2 class="empty m-5 text-center">No Activity registered.</h2>
     <%else %>
       <div class="cards">
         <% @category_activities.each do |activity| %>
