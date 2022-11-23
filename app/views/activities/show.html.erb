@@ -11,7 +11,10 @@
     <div class="card-show-info3">
       <p><%= @activity.location %></p>
 
-    <button type="button" class="btn btn-primary" >Reservé</button>
+    <%= simple_form_for [@activity,Booking.new] do |f| %>
+      <%= f.submit %>
+    <% end %>
+
     <p class="test1"><strong><%= "Contact : " %></strong></p>
     <div class="card-show-info2">
       <p><%= @activity.user.name %></p>
