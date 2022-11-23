@@ -10,5 +10,9 @@ application.register("carousel", CarouselController)
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
+import CategoryActivityController from "./category_activity_controller"
+application.register("category-activity", CategoryActivityController)
+
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)

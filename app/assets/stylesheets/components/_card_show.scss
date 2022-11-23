@@ -1,25 +1,30 @@
 
 .card-show{
-  border: 1px solid black;
+  border: 1px solid rgb(253, 253, 253);
   padding: 30px;
   width: 500px;
   height: 500px;
+  background-color: rgb(111, 107, 107);
+  box-shadow: 1px 1px 1px 3px rgba(0, 0, 0, 0.1);
 
-
+   button{
+    position: relative;
+    top: 1px; left: 338px;
+  }
 }
 .card-show-info{
 
-  padding: auto;
-  border: 1px solid black;
-  width: 150px;
+  padding-bottom: 30px;
+
+  width: 300px;
   height: 150px;
+  box-shadow: 1px 1px 3px 1px rgba(4, 4, 4, 0.2);
+  background-color: rgb(97, 92, 92);
+  font-color:rgb(253, 253, 253)
+
+  h3{
+    text-align: center;
+  }
 
 }
-.card-show-info2{
-  margin-top: 10px;
-  padding: auto;
-  border: 1px solid black;
-  width: 150px;
-  height: 150px;
 
-}
