@@ -1,12 +1,11 @@
 class BookingsController < ApplicationController
 
-  def index
-    raise
-    @bookings = policy_scope(Booking)
-  end
-
-  def show
-    @bookings = Booking.find(params[:id])
+  def create
+    @activity = Activity.find(params[:activity_id])
+    @booking = Booking.new(user: current_user, activity: @activity)
     authorize @booking
+    if @booking.save
+      redirect_to activity_path(@activity), flash: { notice: "You booked this activity!" }
+    end
   end
 end
