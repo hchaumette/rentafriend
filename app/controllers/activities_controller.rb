@@ -7,13 +7,9 @@ class ActivitiesController < ApplicationController
   end
 
   def index
+    @category = params[:category]
     @activities = policy_scope(Activity)
-    @markers = @activities.geocoded.map do |activity|
-      {
-        lat: activity.latitude,
-        lng: activity.longitude
-      }
-    end
+    @category_activities = @activities.where(category: @category) if @category
   end
 
   def show

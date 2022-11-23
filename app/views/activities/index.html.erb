@@ -1,35 +1,30 @@
 <%= render 'shared/navbar' %>
-<div>
-
-  <%= render 'shared/banner' %>
-</div>
 
 <div class="container">
+  <% if @category %>
+    <h1 class="text-center m-5"><%= @category %></h1>
+    <% if  @category_activities.empty? %>
+      <h2 class="empty m-5 text-center">No Activity registered.</h2>
+    <%else %>
+      <div class="cards">
+        <% @category_activities.each do |activity| %>
+          <%= link_to activity_path(activity) do %>
+            <%= render 'shared/card_activity', activity: activity %>
+          <% end %>
+        <% end %>
+       </div>
+    <% end %>
+  <% end %>
 
-
-<div class="d-flex justify-content-between align-items-center">
-  <div>
-    <h1>Join an activity!</h1>
-  </div>
-  <div>
-    <%= link_to "Post an Activity", new_activity_path, class:'btn btn-primary' %>
-  </div>
-</div>
-
+  <h2 class="text-center m-5">All activities</h2>
   <div class="cards">
-
     <% @activities.each do |activity| %>
       <%= link_to activity_path(activity) do %>
-        <%= render 'shared/card_activity', activity: activity %>
-
+      <%= render 'shared/card_activity', activity: activity %>
       <% end %>
-
     <% end %>
 
 
   </div>
-    <div style="width: 100%; height: 600px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
+</div>
+
