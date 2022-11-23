@@ -8,10 +8,11 @@
   } %>
 <%# <% end %>
 <div class="container dashboard-margin-bottom">
-<div class="grid">
-  <div class="grid-left">
-    <h2>Calendrier</h2>
-  </div>
+  <div class="grid">
+    <div class="grid-left">
+    <h2>Calendar</h2>
+    <input type="date" class="flatpickr d-none" data-controller="flatpickr">
+    </div>
 
 
   <div class="dashboard-card">
@@ -31,12 +32,8 @@
     </div>
   </div>
 </div>
-
-
-
-
 <br>
-
+<div class="footer-carousel">
 <div class="dashboard-card">
   <h2 class="dashboard-title">Pending</h2>
     <div class="glide2" data-controller="carousel" data-carousel-number-value=2>
@@ -51,9 +48,6 @@
       </div>
     </div>
 </div>
-<br>
-
-
 
 <div class="dashboard-card">
   <h2 class="dashboard-title">Declined</h2>
@@ -70,9 +64,6 @@
     </div>
 </div>
 
-
-<br>
-
 <div class="dashboard-card">
   <h2 class="dashboard-title">Accepted</h2>
     <div class="glide4" data-controller="carousel" data-carousel-number-value=4>
@@ -88,7 +79,7 @@
     </div>
 </div>
 
-
+</div>
 
 
 </div>

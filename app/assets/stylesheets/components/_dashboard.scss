@@ -3,7 +3,7 @@
   color: rgb(0, 0, 0);
   width: 100%;
   padding: 14px;
-  border-radius: 5px;
+  border-radius: 4px;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.245);
   text-align: end;
 }
@@ -28,4 +28,9 @@
   a {
     text-decoration: none;
   }
+}
+.footer-carousel {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
 }
