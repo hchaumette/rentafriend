@@ -1,16 +1,29 @@
-
-  <%= render "shared/navbar" %>
+<%= render "shared/navbar" %>
 <div class="container">
-    <h1><%= @activity.title.capitalize %></h1>
-    <p><%= "photo" %></p>
+  <h1><%= @activity.title.capitalize %></h1>
+  <img src="<%= @activity.image_url%>" alt="activity-img">
   <div class="card-show">
+    <p> <strong><%= "Description : "%></strong></p>
     <div class="card-show-info">
       <h3><%= @activity.content %></h3>
     </div>
+
     <div class="card-show-info3">
       <p><%= @activity.location %></p>
+
+    <button type="button" class="btn btn-primary" >Reservé</button>
+    <p class="test1"><strong><%= "Contact : " %></strong></p>
+    <div class="card-show-info2">
+      <p><%= @activity.user.name %></p>
+      <p><%= @activity.user.email %></p>
+
     </div>
   </div>
+
+
+
+
+</div>
       <% if policy(@activity).destroy? %>
   <%= link_to "Delete Activity", activity_path(@activity), data: {turbo_method: :delete} %>
 <% end %>
