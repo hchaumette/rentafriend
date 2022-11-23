@@ -10,10 +10,16 @@ class ActivitiesController < ApplicationController
     @category = params[:category]
     @activities = policy_scope(Activity)
     @category_activities = @activities.where(category: @category) if @category
+
   end
 
   def show
     authorize @activity
+    @marker = [ {
+      lat: @activity.latitude,
+      lng: @activity.longitude
+    }]
+
   end
 
   def create
