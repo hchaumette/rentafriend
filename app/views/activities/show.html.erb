@@ -14,7 +14,7 @@
       <h2><%= @activity.content %></h2>
     </div>
 
-    <button type="button" class="btn btn-primary" >Reservé</button>
+    <%= render "booking_button" %>
     <p class="test1"><strong><%= "Contact : " %></strong></p>
     <div class="card-show-info2">
       <p><%= @activity.user.name %></p>
