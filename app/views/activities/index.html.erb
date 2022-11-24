@@ -1,7 +1,7 @@
 <%= render 'shared/navbar' %>
 
 <div class="container">
-  <%if @search_activities.empty? %>
+  <%if @search_activities != nil && @search_activities.empty?  %>
     <h2 class="empty m-5 text-center">No Result Found.</h2>
   <%else %>
     <% if @category %>
