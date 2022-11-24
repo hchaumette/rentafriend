@@ -1,29 +1,36 @@
 <%= render 'shared/navbar' %>
 
 <div class="container">
-  <% if @category %>
-    <h1 class="text-center m-5"><%= @category %></h1>
-    <% if  @category_activities.empty? %>
-      <h2 class="empty m-5 text-center">No Activity registered.</h2>
-    <%else %>
-      <div class="cards">
-        <% @category_activities.each do |activity| %>
-          <%= link_to activity_path(activity) do %>
-            <%= render 'shared/card_activity', activity: activity %>
+  <%if @search_activities != nil && @search_activities.empty?  %>
+    <h2 class="empty m-5 text-center">No Result Found.</h2>
+  <%else %>
+    <% if @category %>
+      <h1 class="text-center m-5"><%= @category %></h1>
+      <% if  @category_activities.empty? %>
+        <h2 class="empty m-5 text-center">No Activity registered.</h2>
+      <%else %>
+        <div class="cards">
+          <% @category_activities.each do |activity| %>
+            <%= link_to activity_path(activity) do %>
+              <%= render 'shared/card_activity', activity: activity %>
+            <% end %>
           <% end %>
-        <% end %>
-       </div>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
 
-  <h2 class="text-center m-5">All activities</h2>
+  <% if @query.present? && @search_activities.any? %>
+    <h2 class="text-center m-5">Result for <%=@query %></h2>
+  <% else %>
+    <h2 class="text-center m-5">All Result</h2>
+  <% end %>
   <div class="cards">
     <% @activities.each do |activity| %>
       <%= link_to activity_path(activity) do %>
       <%= render 'shared/card_activity', activity: activity %>
       <% end %>
     <% end %>
+
   </div>
 </div>
-
-
