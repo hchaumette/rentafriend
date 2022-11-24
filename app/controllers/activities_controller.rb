@@ -9,7 +9,11 @@ class ActivitiesController < ApplicationController
   def index
     @activities = policy_scope(Activity)
     if params[:query].present?
-      @activities = Activity.search_by_activity(params[:query])
+      @query = params[:query]
+      @search_activities = Activity.search_by_activity(params[:query])
+      unless @search_activities.empty?
+        @activities = @search_activities
+      end
     else
       @category = params[:category]
       @category_activities = @activities.where(category: @category) if @category
