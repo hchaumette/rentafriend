@@ -7,10 +7,13 @@ class ActivitiesController < ApplicationController
   end
 
   def index
-    @category = params[:category]
     @activities = policy_scope(Activity)
-    @category_activities = @activities.where(category: @category) if @category
-
+    if params[:query].present?
+      @activities = Activity.search_by_activity(params[:query])
+    else
+      @category = params[:category]
+      @category_activities = @activities.where(category: @category) if @category
+    end
   end
 
   def show
@@ -19,7 +22,6 @@ class ActivitiesController < ApplicationController
       lat: @activity.latitude,
       lng: @activity.longitude
     }]
-
   end
 
   def create
@@ -58,4 +60,5 @@ class ActivitiesController < ApplicationController
   def set_activity
     @activity = Activity.find(params[:id])
   end
+
 end
