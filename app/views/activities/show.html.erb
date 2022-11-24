@@ -5,7 +5,7 @@
         <div class="card-container">
 
             <div class="img-right-title">
-                <img src="<%= @activity.image_url%>" alt="activity-img" class="img-show" >
+                <%= cl_image_tag @activity.photo.key, class:"img-show"%>
               <h1><%= @activity.title.capitalize %></h1>
             </div>
               <div class="description-box">
@@ -34,12 +34,19 @@
         </div>
     </div>
 
-  <% if policy(@activity).destroy? %>
-    <%= link_to "Delete Activity", activity_path(@activity), data: {turbo_method: :delete} %>
-  <% end %>
 
-
-  <% if policy(@activity).edit? %>
-    <%= link_to "Edit Activity",  edit_activity_path(@activity) %>
-  <% end %>
+  <div class="delete-button">
+    <% if policy(@activity).destroy? %>
+      <%= link_to activity_path(@activity), data: {turbo_method: :delete}  do %>
+      <i class="fa-solid fa-trash-can"></i>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="edit-button">
+    <% if policy(@activity).edit? %>
+      <%= link_to edit_activity_path(@activity) do %>
+      <i class="fa-regular fa-pen-to-square"></i>
+      <% end %>
+    <% end %>
+  </div>
 </div>

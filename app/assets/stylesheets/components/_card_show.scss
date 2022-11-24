@@ -12,12 +12,13 @@
   object-fit: cover;
   height: 200px;
   width: 450px;
-  border-radius: 4px;
-
+  border-radius: 2px;
+  box-shadow: 0px 2px 10px rgba(128, 128, 128, 0.385);
 }
 .card-container {
   box-shadow: 0px 2px 10px grey;
   color: $blue;
+  background-color: $light-gray
 }
 
 
@@ -43,11 +44,12 @@
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
-  color: rgb(116, 116, 116);
+  background-color: $blue;
+  color: $light-gray;
 }
 .booking-button-style:hover {
-  background-color: rgba(255, 0, 0, 0.825);
-  color: rgba(86, 205, 78, 0.98);
+  background-color: $dark_blue;
+  color: $green;
   transition: 1s ease;
 }
 .description-box {
@@ -57,7 +59,13 @@
 
 .contact-box {
   padding-left: 20px;
-
   width: 600px;
+}
+.delete-button {
+  position: relative;
+  top: 0px;
+}
 
+.edit-button {
+  position: relative;
 }
