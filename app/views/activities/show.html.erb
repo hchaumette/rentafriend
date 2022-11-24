@@ -1,4 +1,5 @@
 <%= render "shared/navbar" %>
+<<<<<<< HEAD
 
     <div class="container">
       <h1><%= @activity.title.capitalize %></h1>
@@ -17,17 +18,43 @@
           <p class="test1"><strong><%= "Contact : " %></strong></p>
           <div class="card-show-info2">
         <p><%= @activity.user.name %></p>
+=======
+<div class="container">
+  <h1><%= @activity.title.capitalize %></h1>
+
+  <% if @activity.photo.key.nil? %>
+    <img src="<%= @activity.image_url%>" alt="activity-img">
+  <% else %>
+    <%= cl_image_tag @activity.photo.key %>
+  <% end %>
+
+  <div class="card-show">
+    <p> <strong><%= "Description : "%></strong></p>
+   <div class="card-show-infos">
+      <h2><%= @activity.content %></h2>
+    </div>
+
+    <button type="button" class="btn btn-primary" >Reservé</button>
+    <p class="test1"><strong><%= "Contact : " %></strong></p>
+    <div class="card-show-info2">
+      <p><%= @activity.user.name %></p>
+>>>>>>> 522467b1ae5e3e27392014a0b3cc0b5fd4efc506
       <p><%= @activity.user.email %></p>
     </div>
   </div>
-
-
-
-
 </div>
-      <% if policy(@activity).destroy? %>
-  <%= link_to "Delete Activity", activity_path(@activity), data: {turbo_method: :delete} %>
-<% end %>
+
+<div style="width: 100%; height: 600px;"
+      data-controller="map"
+      data-map-markers-value="<%= @marker.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+
+
+
+  <% if policy(@activity).destroy? %>
+    <%= link_to "Delete Activity", activity_path(@activity), data: {turbo_method: :delete} %>
+  <% end %>
 
 
 <% if policy(@activity).edit? %>
