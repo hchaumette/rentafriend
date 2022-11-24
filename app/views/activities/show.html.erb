@@ -10,6 +10,7 @@
         <h3><%= @activity.content %></h3>
     </div>
 
+
     <div class="card-show-info3">
       <p><%= @activity.location %></p>
         <%= simple_form_for [@activity,Booking.new] do |f| %>
@@ -18,6 +19,7 @@
           <p class="test1"><strong><%= "Contact : " %></strong></p>
           <div class="card-show-info2">
         <p><%= @activity.user.name %></p>
+
       <p><%= @activity.user.email %></p>
     </div>
   </div>

@@ -7,4 +7,14 @@ class Activity < ApplicationRecord
   validates :title, :content, :location, presence: true
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
+
+  include PgSearch::Model
+
+  pg_search_scope :search_by_activity,
+
+  against: [ :title, :content, :location, :category],
+  using: {
+    tsearch: { prefix: true }
+  }
+
 end
