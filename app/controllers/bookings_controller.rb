@@ -5,9 +5,9 @@ class BookingsController < ApplicationController
     @booking = Booking.new(user: current_user, activity: @activity)
     authorize @booking
     redirect_to activity_path(@activity), flash: { notice: "You booked this activity!" } if @booking.save
-
-    @activity.user.notifications += 1
-    @activity.user.save
+    user = @activity.user
+    user.notifications += 1
+    user.save
   end
 
   def accept
@@ -29,8 +29,9 @@ class BookingsController < ApplicationController
   end
 
   def increment_notif
-    @booking.user.notifications += 1
-    @booking.user.save
+    user = @booking.user
+    user.notifications += 1
+    user.save
     @booking.save
     redirect_to dashboards_path
   end
