@@ -12,7 +12,7 @@
       <% current_user.bookings.each do |booking| %>
       <div>
         <%= booking.activity.title %>
-        <%= booking.state %>
+        <em class="<%=booking.state%>"><%= booking.state %></em>
       </div>
       <% end %>
     </div>
@@ -22,14 +22,16 @@
     <h2>my activities</h2>
     <div>
       <% current_user.activities.each do |activity| %>
-      <div>
-        <%= activity.title %>
+      <div class="my-activity-card">
+        <h3><%= activity.title %></h3>
         <% activity.bookings.each do |booking| %>
-          <div>
-            <p><strong><%=booking.user.name%></strong> wants to join this activity</p>
-            <%= link_to "accept", '',class:'btn btn-primary' %>
-            <%= link_to "decline", '',class:'btn btn-danger' %>
-          </div>
+           <% if booking.state == "pending" %>
+            <div>
+              <p><strong><%=booking.user.name%></strong> wants to join this activity</p>
+                <%= link_to "accept", accept_path(booking),class:'btn btn-primary'%>
+                <%= link_to "decline", decline_path(booking),class:'btn btn-danger', data: {turbo_method: :patch} %>
+            </div>
+          <% end %>
         <% end %>
       </div>
       <% end %>
