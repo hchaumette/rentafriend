@@ -1,72 +1,71 @@
 
-.card-show{
-  border: 1px solid rgb(253, 253, 253);
-  padding: 30px;
-  width: 500px;
+.grid-container {
   height: 500px;
-  background-color: rgb(195, 188, 188);
-  box-shadow: 1px 1px 1px 3px rgba(0, 0, 0, 0.1);
-
-   button{
-    position: relative;
-    top: 1px; left: 338px;
-  }
-}
-
-
-.card-show-info2{
-
-  padding: auto;
-  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 800px 500px;
+  margin: 20px auto;
+  border-radius: 4px;
   overflow: hidden;
-  height: 100%;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-
-  align-items: center;
+  box-shadow: 0px 2px 10px rgba(128, 128, 128, 0.385);
 }
 .img-show {
-  background-size: cover;
-  background-position: center;
-  height: 330px;
+  object-fit: cover;
+  height: 200px;
+  width: 450px;
+  border-radius: 2px;
+  box-shadow: 0px 2px 10px rgba(128, 128, 128, 0.385);
+}
+.card-container {
+  box-shadow: 0px 2px 10px grey;
+  color: $blue;
+  background-color: $light-gray
+}
+
+
+.map-box {
+  height: 540px;
+}
+.img-right-title {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-
-.card-show {
-  padding: auto;
-  margin-top: 10px;
+  text-align: center;
   overflow: hidden;
-  height: 100%;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-
-  align-items: center;
+}
+.img-right-title h1 {
+  align-self: center;
+  padding-left: 20px;
 }
 
-
-
-.card-show h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+.booking-button {
+  position: relative;
+  top: 80px;
+  right: -620px;
+}
+.booking-button-style {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: $blue;
+  color: $light-gray;
+}
+.booking-button-style:hover {
+  background-color: $dark_blue;
+  color: $green;
+  transition: 1s ease;
+}
+.description-box {
+  padding-top: 10px;
+  padding-left: 20px;
 }
 
-.card-show p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
+.contact-box {
+  padding-left: 20px;
+  width: 600px;
+}
+.delete-button {
+  position: relative;
+  top: 0px;
 }
 
-.card-show .card-show-infos {
-  padding: 16px;
+.edit-button {
+  position: relative;
 }
