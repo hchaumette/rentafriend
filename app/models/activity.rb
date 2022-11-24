@@ -12,7 +12,7 @@ class Activity < ApplicationRecord
 
   pg_search_scope :search_by_activity,
 
-  against: [ :title ],
+  against: [ :title, :content, :location, :category],
   using: {
     tsearch: { prefix: true }
   }
