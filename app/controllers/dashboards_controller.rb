@@ -2,7 +2,8 @@ class DashboardsController < ApplicationController
 
   def index
     @bookings = policy_scope(Booking).where(user: current_user)
-    @bookings_as_owner = current_user.bookings_as_owner
+    current_user.notifications = 0
+    current_user.save
   end
 
   def show
