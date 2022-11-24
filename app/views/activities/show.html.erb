@@ -5,24 +5,32 @@
         <div class="card-container">
 
             <div class="img-right-title">
-                <%= cl_image_tag @activity.photo.key, class:"img-show"%>
+                <% if @activity.photo.key.nil? %>
+                  <% url = image_path @activity.image_url %>
+                <% else %>
+                  <% url = cl_image_path @activity.photo.key %>
+                <% end %>
+              <div class="banner-show-activity" style="background-image: url(<%=url%>)">
+
               <h1><%= @activity.title.capitalize %></h1>
+              </div>
+
             </div>
               <div class="description-box">
                 <p><strong><%= "Describe : "%></strong></p>
                   <p><%= @activity.content %></p>
                 <p><%= @activity.location %></p>
               </div>
-                <div class="booking-button">
-                    <%= simple_form_for [@activity, Booking.new] do |f| %>
-                      <%= f.submit "Booking", class:"booking-button-style" %>
-                    <% end %>
-                </div>
               <div class="contact-box">
                 <p><strong><%= "Contact : " %></strong></p>
                   <p><%= @activity.user.name %></p>
                 <p><%= @activity.user.email %></p>
               </div>
+                <div class="booking-button">
+                    <%= simple_form_for [@activity, Booking.new] do |f| %>
+                      <%= f.submit "Booking", class:"booking-button-style" %>
+                    <% end %>
+                </div>
         </div>
 
         <div class="sticky-map">
