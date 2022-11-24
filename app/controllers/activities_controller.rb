@@ -7,11 +7,19 @@ class ActivitiesController < ApplicationController
   end
 
   def index
+    @category = params[:category]
     @activities = policy_scope(Activity)
+    @category_activities = @activities.where(category: @category) if @category
+
   end
 
   def show
     authorize @activity
+    @marker = [ {
+      lat: @activity.latitude,
+      lng: @activity.longitude
+    }]
+
   end
 
   def create
@@ -44,7 +52,7 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:title, :content, :location)
+    params.require(:activity).permit(:title, :content, :location, :category, :photo)
   end
 
   def set_activity

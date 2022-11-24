@@ -1,13 +1,36 @@
 .dashboard-title {
-  background-color: rgba(37, 103, 83, 0.476);
-  color: whitesmoke;
+  background-color: rgba(244, 244, 244, 0.592);
+  color: rgb(0, 0, 0);
   width: 100%;
-  margin: 40px auto;
-  padding: 14px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.245);
-  text-align: end;
+  padding: 8px;
+  box-shadow: 0px 6px 10px rgba(198, 198, 198, 0.948);
+  border-radius: 2px;
+  text-align: center;
 }
+
+.dashboard-card {
+  box-shadow: 0px 2px 4px rgba(48, 48, 48, 0.245);
+  padding : 10px;
+  border-radius: 4px;
+}
+
 .dashboard-margin-bottom {
   margin-bottom: 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 800px;
+  margin-top: 20px;
+}
+
+.text-deco-none {
+  a {
+    text-decoration: none;
+  }
+}
+.footer-carousel {
+  display: grid;
+  grid-template-columns: 400px 400px 400px;
+  gap: 48px;
 }

@@ -1,0 +1,19 @@
+.scrolling-page{
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.scrolling-child{
+  height: 100vh;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+.background-red{
+  background-color: red;
+}
+
+.background-blue{
+  background-color: blue;
+}

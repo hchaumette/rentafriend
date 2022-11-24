@@ -1,36 +1,47 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
 
-      <a class="navbar-brand" href="#"> <i class="fa-solid fa-user-group"></i> FINDAFRIEND </a>
+  <div class="logo">
+  <a><%= link_to "FindNakama", root_path, class:"fa-solid fa-user-group" %></a>
+  </div>
 
-      <div class="search-box">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <%# <div class="search-box">
       <button class="btn-search"><i class="fas fa-search"></i></button>
       <input type="text" class="input-search" placeholder="Type to Search...">
-      </div>
+    </div> %>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto">
-        <div class = "nav-circle" data-bs-toggle="dropdown">
-          <li class="nav-item dropdown" >
-            <i class="fa-solid fa-list" id="navbarDropdown"></i>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item active">
           </li>
-          <li class="nav-item avatar">
-            <img class="avatar" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
-          </li>
+          <li class="nav-item dropdown">
+            <%= image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
+              <%= link_to "Dashboard", dashboards_path, class: "dropdown-item" %>
+              <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
-        </div>
-        </ul>
-      </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
 
-  <div class="scrollmenu">
-    <a href="#home">Sport</a>
-    <a href="#news">Nature</a>
-    <a href="#contact">Game</a>
-    <a href="#about">Party</a>
+ <div class="scrollmenu d-flex justify-content-around">
+    <%= link_to "sport" ,activities_path(category: "sport") %>
+    <%= link_to "nature" ,activities_path(category: "nature") %>
+    <%= link_to "party" ,activities_path(category: "party") %>
+    <%= link_to "games" ,activities_path(category: "games") %>
+    <%= link_to "culture" ,activities_path(category: "culture") %>
+    <%= link_to "Post an Activity", new_activity_path, class:'btn btn-primary' %>
   </div>

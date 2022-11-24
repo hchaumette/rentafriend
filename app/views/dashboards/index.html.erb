@@ -1,40 +1,79 @@
+<%= render 'shared/navbar' %>
+
 <div class="container dashboard-margin-bottom">
-
-  <h2 class="dashboard-title">Pending</h2>
- <div class="glide1" data-controller="carousel" data-carousel-number-value=1>
-    <div class="glide__track" data-glide-el="track">
-      <ul class="glide__slides">
-        <% @bookings.each do |booking| %>
-          <% if booking.state == "pending" %>
-            <li class="glide__slide"><%= render "shared/card_activity", activity: booking.activity%></li>
-          <% end %>
-        <% end %>
-      </ul>
+  <div class="grid">
+    <div class="grid-left">
+    <h2>Calendar</h2>
+    <input type="date" class="flatpickr d-none" data-controller="flatpickr">
     </div>
-  </div>
-  <h2 class="dashboard-title">Declined</h2>
-  <div class="glide2" data-controller="carousel" data-carousel-number-value=2>
-    <div class="glide__track" data-glide-el="track">
-      <ul class="glide__slides">
-        <% @bookings.each do |booking| %>
-          <% if booking.state == "declined" %>
-            <li class="glide__slide"><%= render "shared/card_activity", activity: booking.activity%></li>
-          <% end %>
-        <% end %>
-      </ul>
-    </div>
-  </div>
 
-  <h2 class="dashboard-title">Accepted</h2>
-    <div class="glide3" data-controller="carousel" data-carousel-number-value=3>
-      <div class="glide__track" data-glide-el="track">
-        <ul class="glide__slides">
-          <% @bookings.each do |booking| %>
-            <% if booking.state == "accepted" %>
-              <li class="glide__slide"><%= render "shared/card_activity", activity: booking.activity%></li>
-            <% end %>
-          <% end %>
-        </ul>
+    <div class="dashboard-card">
+      <div class="grid-right">
+        <h2 class="dashboard-title">My bookings</h2>
+        <div class="glide1" data-controller="carousel" data-carousel-number-value=1>
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides text-deco-none">
+                <% @bookings_as_owner.each do |booking| %>
+                <%= link_to activity_path(booking.activity) do %>
+                  <li class="glide__slide"><%= render "shared/card_activity",  activity: booking.activity %></li>
+                <% end %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
       </div>
     </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <div class="footer-carousel">
+    <div class="dashboard-card">
+      <h2 class="dashboard-title">Pending</h2>
+        <div class="glide2" data-controller="carousel" data-carousel-number-value=2>
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+              <% @bookings.each do |booking| %>
+                <% if booking.state == "pending" %>
+                  <li class="glide__slide"><%= render "shared/card_activity", activity: booking.activity%></li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    </div>
+
+    <div class="dashboard-card">
+      <h2 class="dashboard-title">Declined</h2>
+        <div class="glide3" data-controller="carousel" data-carousel-number-value=3>
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+              <% @bookings.each do |booking| %>
+                <% if booking.state == "declined" %>
+                  <li class="glide__slide"><%= render "shared/card_activity", activity: booking.activity%></li>
+                <% end %>
+              <% end %>
+            </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-card">
+      <h2 class="dashboard-title">Accepted</h2>
+        <div class="glide4" data-controller="carousel" data-carousel-number-value=4>
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+              <% @bookings.each do |booking| %>
+                <% if booking.state == "accepted" %>
+                  <li class="glide__slide"><%= render "shared/card_activity", activity: booking.activity%></li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    </div>
+  </div>
 </div>

@@ -1,11 +1,21 @@
 <div class="card-trip">
-  <img src="<%= activity.image_url%>" />
+  <% if activity.photo.key.nil? %>
+
+    <img src="<%= activity.image_url%>" />
+
+  <% else %>
+
+    <%= cl_image_tag activity.photo.key %>
+
+  <% end %>
+
   <div class="card-trip-infos">
     <div>
       <h2><%= activity.title %></h2>
       <p><%= activity.content %></p>
     </div>
-    <%# <h2 class="card-trip-pricing">£99.99</h2> %>
-    <img src="<%= activity.user.avatar%>" class="card-trip-user avatar-bordered" />
+
+      <img src="<%= activity.user.avatar%>" class="card-trip-user avatar-bordered" />
+
   </div>
 </div>

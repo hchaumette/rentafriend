@@ -4,8 +4,18 @@
 
 import { application } from "./application"
 
-import CarouselController from "./carousel_controller"
-application.register("carousel", CarouselController)
+  import CarouselController from "./carousel_controller"
+  application.register("carousel", CarouselController)
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+  import FlatpickrController from "./flatpickr_controller"
+  application.register("flatpickr", FlatpickrController)
+
+  import MapController from "./map_controller"
+  application.register("map", MapController)
+  
+  import CategoryActivityController from "./category_activity_controller"
+  application.register("category-activity", CategoryActivityController)
+  
+  import HelloController from "./hello_controller"
+  application.register("hello", HelloController)
+

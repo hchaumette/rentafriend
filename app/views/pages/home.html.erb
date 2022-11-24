@@ -1,18 +1,12 @@
-<%= render 'shared/navbar' %>
+  <div class="scrolling-page">
+    <div class="scrolling-child">
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/banner' %>
+    </div>
+    <div class="scrolling-child background-red">
 
-<%= render 'shared/banner' %>
+    </div>
+    <div class="scrolling-child background-blue">
 
-<div class="container">
-
-<h1>Join an activity!</h1>
-
-  <div class="cards">
-
-    <% @activities.each do |activity| %>
-      <%= link_to activity_path(activity) do %>
-        <%= render 'shared/card_activity', activity: activity %>
-
-      <% end %>
-
-    <% end %>
+    </div>
   </div>
