@@ -1,5 +1,6 @@
 <%= render "shared/navbar" %>
 
+
     <div class="container">
       <h1><%= @activity.title.capitalize %></h1>
         <img src="<%= @activity.image_url%>" alt="activity-img">
@@ -20,14 +21,19 @@
       <p><%= @activity.user.email %></p>
     </div>
   </div>
-
-
-
-
 </div>
-      <% if policy(@activity).destroy? %>
-  <%= link_to "Delete Activity", activity_path(@activity), data: {turbo_method: :delete} %>
-<% end %>
+
+<div style="width: 100%; height: 600px;"
+      data-controller="map"
+      data-map-markers-value="<%= @marker.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+
+
+
+  <% if policy(@activity).destroy? %>
+    <%= link_to "Delete Activity", activity_path(@activity), data: {turbo_method: :delete} %>
+  <% end %>
 
 
 <% if policy(@activity).edit? %>

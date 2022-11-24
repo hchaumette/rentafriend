@@ -2,7 +2,7 @@
   <div class="container-fluid">
 
   <div class="logo">
-  <a><%= link_to "FINDAFRIEND", root_path, class:"fa-solid fa-user-group" %></a>
+  <a><%= link_to "FindNakama", root_path, class:"fa-solid fa-user-group" %></a>
   </div>
 
 
@@ -21,7 +21,7 @@
           <li class="nav-item active">
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Dashboard", dashboards_path, class: "dropdown-item" %>
               <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
@@ -37,9 +37,11 @@
   </div>
 </div>
 
- <div class="scrollmenu">
-    <a href="activities/sport">Sport</a>
-    <a href="activities/nature">Nature</a>
-    <a href="activities/game">Game</a>
-    <a href="activities/party">Party</a>
+ <div class="scrollmenu d-flex justify-content-around">
+    <%= link_to "sport" ,activities_path(category: "sport") %>
+    <%= link_to "nature" ,activities_path(category: "nature") %>
+    <%= link_to "party" ,activities_path(category: "party") %>
+    <%= link_to "games" ,activities_path(category: "games") %>
+    <%= link_to "culture" ,activities_path(category: "culture") %>
+    <%= link_to "Post an Activity", new_activity_path, class:'btn btn-primary' %>
   </div>

@@ -5,7 +5,7 @@ import flatpickr from "flatpickr";
 export default class extends Controller {
   connect() {
     console.log("hello")
-    var coolDates = [Date.parse('2022-12-1'), Date.parse('2022-12-5')];
+    let coolDates = [Date.parse('2022-11-19'), Date.parse('2022-11-25')];
 
       flatpickr(this.element, {
         inline: true,
@@ -13,6 +13,7 @@ export default class extends Controller {
           // Checking to see if the current day object is in our array
          // The `+` is just a shortcut for parsing the date
          console.log(coolDates.indexOf(+dayElem.dateObj))
+
           if (coolDates.indexOf(+dayElem.dateObj) !== -1) {
             dayElem.className += " cool-date";
           }
@@ -21,18 +22,3 @@ export default class extends Controller {
   }
 
 }
-
-
-
-
-var coolDates = [Date.parse('2016-12-1'), Date.parse('2016-12-5')];
-
-flatpickr('.flatpickr', {
-    onDayCreate: function(dObj, dStr, fp, dayElem) {
-        // Checking to see if the current day object is in our array
-       // The `+` is just a shortcut for parsing the date
-        if (coolDates.indexOf(+dayElem.dateObj) !== -1) {
-          dayElem.className += " cool-date";
-        }
-    }
-});

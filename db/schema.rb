@@ -54,6 +54,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_105047) do
     t.string "category"
     t.date "date"
     t.time "time"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
