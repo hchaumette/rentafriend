@@ -12,20 +12,25 @@ class BookingsController < ApplicationController
   def accept
     authorize @booking
     @booking.state = "accepted"
-    @booking.save
-    redirect_to dashboards_path
+    increment_notif
   end
 
   def decline
     authorize @booking
     @booking.state = "decline"
-    @booking.save
-    redirect_to dashboards_path
+    increment_notif
   end
 
   private
 
   def find_booking
     @booking = Booking.find(params[:id])
+  end
+
+  def increment_notif
+    @booking.user.notifications += 1
+    @booking.user.save
+    @booking.save
+    redirect_to dashboards_path
   end
 end
