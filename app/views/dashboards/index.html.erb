@@ -24,15 +24,15 @@
       <% current_user.activities.each do |activity| %>
       <div class="my-activity-card">
         <h3><%= activity.title %></h3>
-        <% activity.bookings.each do |booking| %>
-           <% if booking.state == "pending" %>
-            <div>
-              <p><strong><%=booking.user.name%></strong> wants to join this activity</p>
-                <%= link_to "accept", accept_path(booking),class:'btn btn-primary'%>
-                <%= link_to "decline", decline_path(booking),class:'btn btn-danger', data: {turbo_method: :patch} %>
-            </div>
+        <div class="joinning">
+          <% activity.bookings.each do |booking| %>
+            <% if booking.state == "pending" %>
+                <p><strong><%=booking.user.name%></strong> wants to join this activity</p>
+                  <%= link_to "accept", accept_path(booking),class:'btn btn-primary'%>
+                  <%= link_to "decline", decline_path(booking),class:'btn btn-danger', data: {turbo_method: :patch} %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
       <% end %>
     </div>
