@@ -1,9 +1,21 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
 
-  <div class="logo">
-  <a><%= link_to "FindNakama", root_path, class:"fa-solid fa-user-group" %></a>
+  <div class="logo me-auto">
+    <%= link_to "FindNakama", root_path, class:"fa-solid fa-user-group" %>
   </div>
+
+  <div class="align-self-center me-4" id="Nav-dash-btn">
+    <%= link_to "Dashboard", dashboards_path %>
+
+    <% unless current_user.notifications == 0 %>
+      <div class="notifications">
+        <%= current_user.notifications %>
+      </div>
+    <% end %>
+
+  </div>
+
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,7 +28,8 @@
           <li class="nav-item active">
           </li>
           <li class="nav-item dropdown">
-             <%#<%= image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
+            <%= image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Dashboard", dashboards_path, class: "dropdown-item" %>
               <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
