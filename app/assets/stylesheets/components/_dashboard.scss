@@ -3,3 +3,15 @@
   grid-template-columns: 1fr 1fr;
   margin-top: 20px;
 }
+
+.pending{
+  color: rgba(128, 128, 128, 0.600);
+}
+
+.accepted{
+  color: rgba(0, 128, 0, 0.6)
+}
+
+.declined{
+  color: rgba(255, 0, 0, 0.6);
+}

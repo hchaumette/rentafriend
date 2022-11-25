@@ -5,7 +5,7 @@
     <h2 class="empty m-5 text-center">No Result Found.</h2>
   <%else %>
     <% if @category %>
-      <h1 class="text-center m-5"><%= @category %></h1>
+      <h1 class="text-center m-5"><%= @category.upcase %></h1>
       <% if  @category_activities.empty? %>
         <h2 class="empty m-5 text-center">No Activity registered.</h2>
       <%else %>
@@ -21,9 +21,9 @@
   <% end %>
 
   <% if @query.present? && @search_activities.any? %>
-    <h2 class="text-center m-5">Result for <%=@query %></h2>
+    <h2 class="text-center m-5">Results for <%=@query %></h2>
   <% else %>
-    <h2 class="text-center m-5">All Result</h2>
+    <h2 class="text-center m-5">All ACTIVITIES</h2>
   <% end %>
   <div class="cards">
     <% @activities.each do |activity| %>

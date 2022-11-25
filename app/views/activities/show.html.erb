@@ -24,11 +24,9 @@
                 <p><%= @activity.user.name %></p>
               <p><%= @activity.user.email %></p>
             </div>
-              <div class="booking-button">
-                  <%= simple_form_for [@activity, Booking.new] do |f| %>
-                    <%= f.submit "Booking", class:"booking-button-style" %>
-                  <% end %>
-              </div>
+            <div class="booking-button">
+              <%= render "booking_button",booking: @booking %>
+            </div>
         </div>
 
         <div class="sticky-map">

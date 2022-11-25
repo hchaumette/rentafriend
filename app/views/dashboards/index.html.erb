@@ -7,11 +7,11 @@
     <input type="date" class="flatpickr d-none" data-controller="flatpickr">
     </div>
     <div>
-      <h2>Request</h2>
+      <h2> Resquest </h2>
       <div class="my-activity-card">
         <% current_user.bookings.each do |booking| %>
         <div>
-          <%= booking.activity.title %>
+          <%= booking.activity.title %> : your request is
           <em class="<%=booking.state%>"><%= booking.state %></em>
         </div>
         <% end %>
