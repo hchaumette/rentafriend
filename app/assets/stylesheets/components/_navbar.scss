@@ -54,6 +54,7 @@ div.scrollmenu a {
 }
 
 #Nav-dash-btn{
+  display: inline-block;
   position: relative;
   .notifications{
     height: 20px;
@@ -70,10 +71,17 @@ div.scrollmenu a {
   }
 }
 
-#Nav-dash-btn:hover{
-  a{
-    text-decoration: underline;
-  }
+#Nav-dash-btn::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 4px;
+  bottom: 0;
+  left: 0;
+  background-color: #9DD9D2;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
 }
 
 .icone {
@@ -95,6 +103,29 @@ div.scrollmenu a {
 }
 
 .icone:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.navright {
+  display: inline-block;
+  position: relative;
+}
+
+.navright::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 4px;
+  bottom: 0;
+  left: 0;
+  background-color: #9DD9D2;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.navright:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
