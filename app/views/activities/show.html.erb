@@ -1,42 +1,60 @@
 <%= render "shared/navbar" %>
-<div class="container">
-  <h1><%= @activity.title.capitalize %></h1>
 
-  <% if @activity.photo.key.nil? %>
-    <img src="<%= @activity.image_url%>" alt="activity-img">
-  <% else %>
-    <%= cl_image_tag @activity.photo.key %>
-  <% end %>
+  <div class="container">
+    <div class="grid-container">
+        <div class="card-container">
 
-  <div class="card-show">
-    <p> <strong><%= "Description : "%></strong></p>
-   <div class="card-show-infos">
-      <h2><%= @activity.content %></h2>
+            <div class="img-right-title">
+                <% if @activity.photo.key.nil? %>
+                  <% url = image_path @activity.image_url %>
+                <% else %>
+                  <% url = cl_image_path @activity.photo.key %>
+                <% end %>
+              <div class="banner-show-activity" style="background-image: url(<%=url%>)">
+
+              <h1><%= @activity.title.capitalize %></h1>
+              </div>
+
+            </div>
+              <div class="description-box">
+                <p><strong><%= "Describe : "%></strong></p>
+                  <p><%= @activity.content %></p>
+                <p><%= @activity.location %></p>
+              </div>
+              <div class="contact-box">
+                <p><strong><%= "Contact : " %></strong></p>
+                  <p><%= @activity.user.name %></p>
+                <p><%= @activity.user.email %></p>
+              </div>
+                <div class="booking-button">
+                    <%= simple_form_for [@activity, Booking.new] do |f| %>
+                      <%= f.submit "Booking", class:"booking-button-style" %>
+                    <% end %>
+                </div>
+        </div>
+
+        <div class="sticky-map">
+          <div class="map-box"
+            data-controller="map"
+            data-map-markers-value="<%= @marker.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
     </div>
 
-    <button type="button" class="btn btn-primary" >Reservé</button>
-    <p class="test1"><strong><%= "Contact : " %></strong></p>
-    <div class="card-show-info2">
-      <p><%= @activity.user.name %></p>
-      <p><%= @activity.user.email %></p>
-    </div>
+
+  <div class="delete-button">
+    <% if policy(@activity).destroy? %>
+      <%= link_to activity_path(@activity), data: {turbo_method: :delete}  do %>
+      <i class="fa-solid fa-trash-can"></i>
+      <% end %>
+    <% end %>
   </div>
-</div>
-
-<div style="width: 100%; height: 600px;"
-      data-controller="map"
-      data-map-markers-value="<%= @marker.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-
-
-
-  <% if policy(@activity).destroy? %>
-    <%= link_to "Delete Activity", activity_path(@activity), data: {turbo_method: :delete} %>
-  <% end %>
-
-
-<% if policy(@activity).edit? %>
-  <%= link_to "Edit Activity",  edit_activity_path(@activity) %>
-<% end %>
+  <div class="edit-button">
+    <% if policy(@activity).edit? %>
+      <%= link_to edit_activity_path(@activity) do %>
+      <i class="fa-regular fa-pen-to-square"></i>
+      <% end %>
+    <% end %>
+  </div>
 </div>

@@ -6,74 +6,34 @@
     <h2>Calendar</h2>
     <input type="date" class="flatpickr d-none" data-controller="flatpickr">
     </div>
-
-    <div class="dashboard-card">
-      <div class="grid-right">
-        <h2 class="dashboard-title">My bookings</h2>
-        <div class="glide1" data-controller="carousel" data-carousel-number-value=1>
-            <div class="glide__track" data-glide-el="track">
-              <ul class="glide__slides text-deco-none">
-                <% @bookings_as_owner.each do |booking| %>
-                <%= link_to activity_path(booking.activity) do %>
-                  <li class="glide__slide"><%= render "shared/card_activity",  activity: booking.activity %></li>
-                <% end %>
-                <% end %>
-              </ul>
-            </div>
-          </div>
+    <div>
+      <h2>Request</h2>
+      <div class="my-activity-card">
+        <% current_user.bookings.each do |booking| %>
+        <div>
+          <%= booking.activity.title %>
+          <em class="<%=booking.state%>"><%= booking.state %></em>
+        </div>
+        <% end %>
       </div>
-    </div>
-  </div>
-
-  <br>
-  <br>
-  <br>
-  <br>
-
-  <div class="footer-carousel">
-    <div class="dashboard-card">
-      <h2 class="dashboard-title">Pending</h2>
-        <div class="glide2" data-controller="carousel" data-carousel-number-value=2>
-          <div class="glide__track" data-glide-el="track">
-            <ul class="glide__slides">
-              <% @bookings.each do |booking| %>
-                <% if booking.state == "pending" %>
-                  <li class="glide__slide"><%= render "shared/card_activity", activity: booking.activity%></li>
-                <% end %>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-    </div>
-
-    <div class="dashboard-card">
-      <h2 class="dashboard-title">Declined</h2>
-        <div class="glide3" data-controller="carousel" data-carousel-number-value=3>
-          <div class="glide__track" data-glide-el="track">
-            <ul class="glide__slides">
-              <% @bookings.each do |booking| %>
-                <% if booking.state == "declined" %>
-                  <li class="glide__slide"><%= render "shared/card_activity", activity: booking.activity%></li>
-                <% end %>
-              <% end %>
-            </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="dashboard-card">
-      <h2 class="dashboard-title">Accepted</h2>
-        <div class="glide4" data-controller="carousel" data-carousel-number-value=4>
-          <div class="glide__track" data-glide-el="track">
-            <ul class="glide__slides">
-              <% @bookings.each do |booking| %>
-                <% if booking.state == "accepted" %>
-                  <li class="glide__slide"><%= render "shared/card_activity", activity: booking.activity%></li>
-                <% end %>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-    </div>
   </div>
 </div>
+  <div>
+    <h2>my activities</h2>
+    <div class="d-flex justify-content-around">
+      <% current_user.activities.each do |activity| %>
+      <div class="my-activity-card">
+        <h3><%= activity.title %></h3>
+        <div class="joinning">
+          <% activity.bookings.each do |booking| %>
+            <% if booking.state == "pending" %>
+                <p><strong><%=booking.user.name%></strong> wants to join this activity</p>
+                  <%= link_to "accept", accept_path(booking),class:'btn btn-primary'%>
+                  <%= link_to "decline", decline_path(booking),class:'btn btn-danger', data: {turbo_method: :patch} %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
