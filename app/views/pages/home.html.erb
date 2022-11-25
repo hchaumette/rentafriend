@@ -2,11 +2,32 @@
     <div class="scrolling-child">
       <%= render 'shared/navbar' %>
       <%= render 'shared/banner' %>
-      <%= render 'shared/searchbar' %>
-    </div>
-    <div class="scrolling-child background-red" id="middle">
-    </div>
-    <div class="scrolling-child background-blue">
+     </div>
 
-    </div>
-  </div>
+    <div class="scrolling-child background-red" id="middle">
+      <div class="row">
+        <div class="column">
+          <div class="search"><%= render 'shared/searchbar' %></div>
+
+            <div class="card-flex1">
+              <%= render 'pages/cardhome', activity: @display1 %>
+            </div>
+            <div class="card-flex2">
+              <%= render 'pages/cardhome', activity: @display2 %>
+            </div>
+            <div class="card-flex3">
+              <%= render 'pages/cardhome', activity: @display3 %>
+            </div>
+        </div>
+        <div class="column">
+          <div class="right">
+            <h2>Looking for an activity ?</h2>
+            <p>Some text here too.</p>
+          </div>
+        </div>
+      </div>
+
+
+    <div class="scrolling-child background-blue">
+     </div>
+   </div>
