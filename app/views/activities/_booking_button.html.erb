@@ -1,7 +1,7 @@
 <% if @booking && (@booking.state == "pending") %>
   <%= link_to "Request sent", dashboards_path(), class:'btn btn-secondary' %>
 <% elsif @booking && @booking.state == "accepted" %>
-  <%= link_to "Request accepted", dashboards_path(), class:'btn btn-succes' %>
+  <%= link_to "Request accepted", dashboards_path(), class:'btn btn-success' %>
 <% elsif @booking && @booking.state == "declined" %>
   <%= link_to "Request declined", dashboards_path(), class:'btn btn-danger' %>
 <% else %>
