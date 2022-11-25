@@ -30,8 +30,8 @@ activity3 = Activity.create!(title: "Board Games", content: Faker::Lorem.paragra
 
 activity4 = Activity.create!(title: "Vist the Beaux art museum", content: Faker::Lorem.paragraph, location: "Beaux arts lille", user: user3, image_url:  "https://lejournal.cnrs.fr/sites/default/files/styles/visuel_principal/public/assets/images/adobestock_309190820_editorial_use_only_72dpi.jpg", date:"03/02/2023", category: "culture")
 
-activity5 = Activity.create!(title: "Badminton", content: Faker::Lorem.paragraph, location: "Le shaft Lille", user: user5, image_url:  "https://www.univ-lyon2.fr/medias/photo/gettyimages-520165651_1655391378901-jpg?ID_FICHE=52443", date:"03/02/2023", category: "sport")
+activity5 = Activity.create!(title: "Badminton", content: Faker::Lorem.paragraph, location: "Lille", user: user5, image_url:  "https://www.univ-lyon2.fr/medias/photo/gettyimages-520165651_1655391378901-jpg?ID_FICHE=52443", date:"03/02/2023", category: "sport")
 
-activity6 = Activity.create!(title: "Basket", content: Faker::Lorem.paragraph, location: "Lille", user: user2, image_url: "https://img.le-dictionnaire.com/basket-sport.jpg", date:"03/02/2023", category: "sport")
+activity6 = Activity.create!(title: "Basket", content: Faker::Lorem.paragraph, location: "Lille", user: user2, image_url: "https://img.le-dictionnaire.com/basket-sport.jpg", date:"03/12/2022", category: "sport")
 
 puts " ended create activites"
