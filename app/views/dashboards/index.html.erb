@@ -1,39 +1,41 @@
 <%= render 'shared/navbar' %>
 
-<div class="container dashboard-margin-bottom">
-  <div class="grid">
-    <div class="grid-left">
-    <h2>Calendar</h2>
-    <input type="date" class="flatpickr d-none" data-controller="flatpickr">
-    </div>
-    <div>
-      <h2> Resquest </h2>
-      <div class="my-activity-card">
-        <% current_user.bookings.each do |booking| %>
-        <div>
-          <%= booking.activity.title %> : your request is
-          <em class="<%=booking.state%>"><%= booking.state %></em>
-        </div>
-        <% end %>
+<div class="container">
+  <div class="flex-dashboard-container">
+      <div class="request-container">
+        <h2> Request </h2>
+          <div class="border"></div>
+          <div class="padding-container">
+          <% current_user.bookings.each do |booking| %>
+           <div class="joinning">
+          <strong><%= booking.activity.title %></strong> : your request is
+            <em class="<%=booking.state%>"><%= booking.state %></em><br>
+            </div>
+          <% end %>
+          </div>
       </div>
+
+    <div class="activity-container">
+      <h2>My activities</h2>
+        <div class="border"></div>
+        <div class="padding-container">
+          <% current_user.activities.each do |activity| %>
+            <div class="joinning">
+            <h3><%= activity.title %></h3>
+              <% activity.bookings.each do |booking| %>
+                <% if booking.state == "pending" %>
+                <div class="flex-flex">
+                    <p><strong><%=booking.user.name%></strong> wants to join this activity</p>
+                      <div class="flex-flex-child">
+                        <%= link_to "accept", accept_path(booking),class:'btn btn-primary'%>
+                        <%= link_to "decline", decline_path(booking),class:'btn btn-danger', data: {turbo_method: :patch} %>
+                      </div>
+                    </div>
+                <% end %>
+            </div>
+              <% end %>
+        <% end %>
+        </div>
+    </div>
   </div>
 </div>
-  <div>
-    <h2>my activities</h2>
-    <div class="d-flex justify-content-around">
-      <% current_user.activities.each do |activity| %>
-      <div class="my-activity-card">
-        <h3><%= activity.title %></h3>
-        <div class="joinning">
-          <% activity.bookings.each do |booking| %>
-            <% if booking.state == "pending" %>
-                <p><strong><%=booking.user.name%></strong> wants to join this activity</p>
-                  <%= link_to "accept", accept_path(booking),class:'btn btn-primary'%>
-                  <%= link_to "decline", decline_path(booking),class:'btn btn-danger', data: {turbo_method: :patch} %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-      <% end %>
-    </div>
-  </div>
