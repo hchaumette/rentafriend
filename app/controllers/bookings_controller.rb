@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
 
   def decline
     authorize @booking
-    @booking.state = "decline"
+    @booking.state = "declined"
     increment_notif
   end
 

@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: %i[show destroy update edit]
+  before_action :set_current_booking, only: %i[show]
 
   def new
     @activity = Activity.new
@@ -22,7 +23,7 @@ class ActivitiesController < ApplicationController
 
   def show
     authorize @activity
-    @marker = [ {
+    @marker = [{
       lat: @activity.latitude,
       lng: @activity.longitude
     }]
@@ -65,4 +66,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
   end
 
+  def set_current_booking
+    @booking = @activity.bookings.find_by(user: current_user)
+  end
 end

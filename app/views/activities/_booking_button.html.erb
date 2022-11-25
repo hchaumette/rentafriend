@@ -1,3 +1,9 @@
-<%= simple_form_for [@activity,Booking.new] do |f| %>
-  <%= f.submit "Join this activity", class:'btn btn-primary' %>
+<% if @booking && (@booking.state == "pending") %>
+  <%= link_to "Request sent", dashboards_path(), class:'btn btn-secondary' %>
+<% elsif @booking && @booking.state == "accepted" %>
+  <%= link_to "Request accepted", dashboards_path(), class:'btn btn-succes' %>
+<% elsif @booking && @booking.state == "declined" %>
+  <%= link_to "Request declined", dashboards_path(), class:'btn btn-danger' %>
+<% else %>
+  <%= link_to "Ask to participate", activity_bookings_path(@activity),class:'btn btn-primary', data: {turbo_method: :post} %>
 <% end %>
