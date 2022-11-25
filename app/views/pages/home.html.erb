@@ -4,7 +4,7 @@
       <%= render 'shared/banner' %>
      </div>
 
-    <div class="scrolling-child background-red" id="middle">
+    <div class="scrolling-child" id="middle">
       <div class="row">
         <div class="column">
           <div class="search"><%= render 'shared/searchbar' %></div>
@@ -22,12 +22,30 @@
         <div class="column">
           <div class="right">
             <h2>Looking for an activity ?</h2>
-            <p>Some text here too.</p>
+            <p>Think of an activity you enjoy and see the results.</p>
+            <%= link_to "All Activities", activities_path, class:"btn btn-primary btn-lg" %>
           </div>
         </div>
       </div>
-
-
-    <div class="scrolling-child background-blue">
-     </div>
+    <div class="scrolling-child" id="last">
+      <div class="row">
+        <div class="column">
+          <div class="left">
+            <h2>Create an activity !</h2>
+            <p>Offer your own activity to the Findnakama community and share your passion.</p>
+            <%= link_to "Create Activity", new_activity_path, class:"btn btn-primary btn-lg" %>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card-flex1">
+            <%= render 'pages/cardhome', activity: @display1 %>
+          </div>
+          <div class="card-flex2">
+            <%= render 'pages/cardhome', activity: @display2 %>
+          </div>
+          <div class="card-flex3">
+            <%= render 'pages/cardhome', activity: @display3 %>
+          </div>
+        </div>
+    </div>
    </div>
