@@ -1,4 +1,98 @@
-// Specific CSS for your home-page
-.scrolling-page {
-    overflow:scroll;
+
+.row {
+  display: flex;
+  flex: 50%;
+}
+
+.column {
+  flex: 50%;
+}
+
+.right {
+  display: table-cell;
+  vertical-align: middle;
+  height: 100vh;
+}
+
+.search{
+  z-index: 1;
+  position: relative;
+  top: 270px;
+  left: 144px;
+  bottom: 50px;
+  right: 50px;
+  width: 250px;
+}
+
+.card-flex1 {
+  position: relative;
+  top: 20px;
+  left: 75px;
+  bottom: 50px;
+  right: 50px;
+  height: 300px;
+}
+
+.card-flex2 {
+  position: relative;
+  top: -70px;
+  left: 150px;
+  bottom: 50px;
+  right: 50px;
+  height: 300px;
+  color: black;
+}
+
+.card-flex3 {
+  position: relative;
+  top: -460px;
+  left: 280px;
+  bottom: 50px;
+  right: 50px;
+  height: 300px;
+  color: black;
+}
+
+
+.card-home {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  color: black;
+  width: 50%;
+  height: 100%;
+}
+
+.card-home > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-home h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-home p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-home .card-home-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-home-infos .card-home-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
 }
