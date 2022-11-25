@@ -16,10 +16,17 @@
               <div class="banner-show-activity" style="background-image: url(<%=url%>)">
                 <h1><%= @activity.title.capitalize %></h1>
               </div>
-              <div class="description-box">
-                <p><strong><%= "Describe : "%></strong></p>
-                  <p><%= @activity.content %></p>
-                <p><%= @activity.location %></p>
+              <div class="description-box d-flex justify-content-between pt-1">
+                <div class="me-4">
+                  <p><strong>Describe :</strong></p>
+                    <p><%= @activity.content %></p>
+                  <p><%= @activity.location %></p>
+                </div>
+                <div class="me-5">
+                  <p><strong>Date :</strong></p>
+                    <p><%= @activity.date %></p>
+
+                </div>
               </div>
             </div>
 
