@@ -33,6 +33,7 @@
 .row {
   display: flex;
   flex: 50%;
+  position: relative;
 }
 
 .column {
@@ -154,4 +155,13 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.button{
+  z-index: 9;
+  height: 5vh;
+  width: 100%;
+  background-color: #9DD9D2;
+  border: none;
+  color: black;
 }
