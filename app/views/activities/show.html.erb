@@ -11,24 +11,22 @@
                   <% url = cl_image_path @activity.photo.key %>
                 <% end %>
               <div class="banner-show-activity" style="background-image: url(<%=url%>)">
-
-              <h1><%= @activity.title.capitalize %></h1>
+                <h1><%= @activity.title.capitalize %></h1>
               </div>
-
             </div>
-              <div class="description-box">
-                <p><strong><%= "Describe : "%></strong></p>
-                  <p><%= @activity.content %></p>
-                <p><%= @activity.location %></p>
-              </div>
-              <div class="contact-box">
-                <p><strong><%= "Contact : " %></strong></p>
-                  <p><%= @activity.user.name %></p>
-                <p><%= @activity.user.email %></p>
-              </div>
-                <div class="booking-button">
-                  <%= render "booking_button",booking: @booking %>
-                </div>
+            <div class="description-box">
+              <p><strong><%= "Describe : "%></strong></p>
+                <p><%= @activity.content %></p>
+              <p><%= @activity.location %></p>
+            </div>
+            <div class="contact-box">
+              <p><strong><%= "Contact : " %></strong></p>
+                <p><%= @activity.user.name %></p>
+              <p><%= @activity.user.email %></p>
+            </div>
+            <div class="booking-button">
+              <%= render "booking_button",booking: @booking %>
+            </div>
         </div>
 
         <div class="sticky-map">

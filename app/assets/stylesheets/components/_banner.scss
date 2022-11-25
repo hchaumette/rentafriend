@@ -3,11 +3,13 @@
   background-position: center;
   padding: 200px 0;
   height: 90vh ;
+}
 
-  button{
-
-  }
-
+.button{
+  position: relative;
+  bottom: -140px;
+  height: 52px;
+  width: 1300px;
 }
 
 .banner h1 {
