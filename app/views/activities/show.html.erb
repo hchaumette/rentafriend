@@ -5,9 +5,15 @@
         <div class="card-container">
 
             <div class="img-right-title">
-                <%= cl_image_tag @activity.photo.key, class:"img-show"%>
-              <h1><%= @activity.title.capitalize %></h1>
-            </div>
+                <% if @activity.photo.key.nil? && @activity.image_url.nil? %>
+                  <% url = "https://www.idfmoteurs.com/images/pas-image-disponible.png" %>
+                <% else %>
+                  <% url = cl_image_path @activity.photo.key %>
+                <% end %>
+
+              <div class="banner-show-activity" style="background-image: url(<%=url%>)">
+                <h1><%= @activity.title.capitalize %></h1>
+              </div>
               <div class="description-box">
                 <p><strong><%= "Describe : "%></strong></p>
                   <p><%= @activity.content %></p>
