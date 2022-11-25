@@ -1,0 +1,21 @@
+<div class="card-home">
+  <% if activity.photo.key.nil? %>
+
+    <img src="<%= activity.image_url%>" />
+
+  <% else %>
+
+    <%= cl_image_tag activity.photo.key %>
+
+  <% end %>
+
+  <div class="card-home-infos">
+    <div>
+      <h2><%= activity.title %></h2>
+      <p><%= activity.content %></p>
+    </div>
+
+      <img src="<%= activity.user.avatar%>" class="card-home-user avatar-bordered" />
+
+  </div>
+</div>

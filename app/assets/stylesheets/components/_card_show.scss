@@ -1,6 +1,6 @@
 
 .grid-container {
-  height: 500px;
+  width: 100%;
   display: grid;
   grid-template-columns: 800px 500px;
   margin: 20px auto;
@@ -8,37 +8,36 @@
   overflow: hidden;
   box-shadow: 0px 2px 10px rgba(128, 128, 128, 0.385);
 }
-.img-show {
-  object-fit: cover;
-  height: 200px;
-  width: 450px;
-  border-radius: 2px;
-  box-shadow: 0px 2px 10px rgba(128, 128, 128, 0.385);
-}
+
 .card-container {
   box-shadow: 0px 2px 10px grey;
-  color: $blue;
-  background-color: $light-gray
+  color: $dark_blue;
+  background-color: $light-gray;
 }
-
+.banner-show-activity {
+  width: 100%;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .map-box {
   height: 540px;
 }
-.img-right-title {
-  display: flex;
-  text-align: center;
-  overflow: hidden;
-}
-.img-right-title h1 {
-  align-self: center;
-  padding-left: 20px;
+
+.banner-show-activity h1 {
+  color:$light-gray;
+  text-shadow: 3px 3px 10px #000000;
 }
 
 .booking-button {
   position: relative;
-  top: 80px;
-  right: -620px;
+  top: -10px;
+  right: -682px;
 }
 .booking-button-style {
   padding: 10px 20px;
@@ -50,10 +49,9 @@
 .booking-button-style:hover {
   background-color: $dark_blue;
   color: $green;
-  transition: 1s ease;
+  transition: 0.3s ease;
 }
 .description-box {
-  padding-top: 10px;
   padding-left: 20px;
 }
 
@@ -62,10 +60,115 @@
   width: 600px;
 }
 .delete-button {
+  padding: 0;
+  margin: 0;
   position: relative;
-  top: 0px;
+  top: -560px;
+  left: 6px;
+}
+.delete-button i {
+  color: white;
+  text-shadow: 2px 2px 10px #000000;
+}
+
+.delete-button p {
+  padding: 0;
 }
 
 .edit-button {
+  margin: 0;
   position: relative;
+  top: -584px;
+  left: 24px;
+}
+
+.edit-button i {
+  color: white;
+  text-shadow: 2px 2px 10px #000000;
+}
+
+.edit-button p {
+  padding: 0;
+}
+
+
+
+@media (max-width: 1200px) {
+  .grid-container {
+    display: block;
+  }
+  .booking-button {
+    position: relative;
+    top: -14px;
+    right: -820px;
+  }
+  .delete-button {
+    position: relative;
+    top: -1092px;
+    left: 6px;
+  }
+
+  .edit-button {
+    position: relative;
+    top: -1116px;
+    left: 24px;
+  }
+}
+@media (max-width: 990px) {
+
+  .booking-button {
+    position: relative;
+    top: -14px;
+    right: -580px;
+  }
+}
+@media (max-width: 768px) {
+
+  .booking-button {
+    position: relative;
+    top: -14px;
+    right: -400px;
+  }
+}
+@media (max-width: 576px) {
+
+  .booking-button {
+    position: relative;
+    top: -14px;
+    right: -400px;
+  }
+  .map-box {
+    height: 300px;
+  }
+  .delete-button {
+    position: relative;
+    top: -854px;
+    left: 6px;
+  }
+
+  .edit-button {
+    position: relative;
+    top: -878px;
+    left: 24px;
+  }
+
+}
+
+
+@media (max-width: 546px) {
+
+  .booking-button {
+    position: relative;
+    top: -12px;
+    right: -406px;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .booking-button {
+    position: relative;
+    top: -12px;
+    right: -362px;
+  }
 }
